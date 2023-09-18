@@ -9,7 +9,7 @@ let priceArray=0;
 function handleClick() {
     priceArray += parseInt(price.value);
     table.innerHTML += `
-        <tr>
+        <tr id="item-qty-input-${i}">
             <td>${i + 1}</td>
             <td>${name.value}</td>
             <td>${price.value}</td>
