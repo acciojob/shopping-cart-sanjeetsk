@@ -1,22 +1,35 @@
 
-const name = document.getElementById("item-name-input");
-const price = document.getElementById("item-price-input");
-const table = document.getElementById("myTable")
+const itemNameInput = document.getElementById("item-name-input");
+const itemPriceInput = document.getElementById("item-price-input");
+const shoppingList = document.getElementById("shopping-list");
 const total = document.getElementById('total');
 
 let i = 0;
 let priceArray=0;
 function handleClick() {
-    priceArray += parseInt(price.value);
-    table.innerHTML += `
-        <tr id="item-qty-input-${i}">
-            <td>${i + 1}</td>
-            <td>${name.value}</td>
-            <td>${price.value}</td>
-        </tr>
-    `
-    name.value = "";
-    price.value = "";
+    const itemName = itemNameInput.value.trim();
+    const itemPrice = parseInt(itemPriceInput.value);
+
+    // Check for valid inputs
+    if (!itemName || isNaN(itemPrice) || itemPrice <= 0) {
+        alert("Invalid input. Please enter a valid item name and price.");
+        return;
+    }
+
+    // Add the item to the shopping list
+    const row = document.createElement("tr");
+
+    row.innerHTML = `
+            <td>${itemName}</td>
+            <td>${itemPrice} </td>
+        `
+    
+    shoppingList.appendChild(row);
+
+    priceArray += itemPrice;
+
     total.innerText = priceArray;
-    i++;
+    
+    itemNameInput.value = "";
+    itemPriceInput.value = "";
 }
