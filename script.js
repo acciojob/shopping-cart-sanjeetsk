@@ -1,7 +1,7 @@
 
 const itemNameInput = document.getElementById("item-name-input");
 const itemPriceInput = document.getElementById("item-price-input");
-const shoppingList = document.getElementById("shopping-list");
+const shoppingList = document.getElementById("item-qty-input");
 const total = document.getElementById('total');
 
 let i = 0;
